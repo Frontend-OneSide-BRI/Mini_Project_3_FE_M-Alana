@@ -11,12 +11,11 @@ function Home() {
                 <Navbar />
             </header>
             <main>
-                <div className="relative">
+                <div className="relative ">
                     <img src="https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/8579/1498579-h-4dfb0de0e149" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black opacity-75"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="productlogo inset-0 justify-center items-center">
-                            <p>Discover Your Favourite Movie and More</p>
-                        </div>
+                        <h1 className="text-white text-3xl font-bold">Discover Your Favourites Movies and More</h1>
                     </div>
                 </div>
             </main>
