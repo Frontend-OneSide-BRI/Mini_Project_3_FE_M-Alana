@@ -1,124 +1,40 @@
 import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import "./index.css"
 
+const apiKey = "1487e6da2b780246708f52464d6d0f05";
+const baseURL = "https://api.themoviedb.org/3";
+const imageURL = "https://image.tmdb.org/t/p/w500";
+
 function Highlight() {
+    const [movie, setMovie] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${baseURL}/movie/popular?api_key=${apiKey}`).then((res) => {
+            setMovie(res.data.results)
+        });
+    }, []);
+
     return (
         <div class="bgcolor bg-gradient-to-t from-indigo-950">
             <div class="container">
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
-                    </div>
-                    <div class="content">z
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
+                    {movie.map((movie) => (
+                        <div class="box">
+                            <div class="imgBx">
+                                <img
+                                    id="gambar"
+                                    src={`${imageURL}${movie.poster_path}`} 
+                                />
+                            </div>
+                            <div class="content">
+                                <div>
+                                    <h2>{movie.title}</h2>
+                                    <p>{movie.overview}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579639782539-15cc6c0be63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1603984362497-0a878f607b92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579310962131-aa21f240d986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
-                    </div>
-                    <div class="content">z
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579639782539-15cc6c0be63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1603984362497-0a878f607b92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="imgBx">
-                        <img
-                            id="gambar" src="https://images.unsplash.com/photo-1579310962131-aa21f240d986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" />
-                    </div>
-                    <div class="content">
-                        <div>
-                            <h2>Image Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem
-                                iusto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    ))};
             </div>
         </div>
     )
