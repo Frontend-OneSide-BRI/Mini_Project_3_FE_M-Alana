@@ -16,10 +16,10 @@
 
 .bgcolor  {
     background-color: #000;
-    height: 1800px;
+    height: 2300px;
   }
 
- .container {
+.container {
     background-color: ;
     position: relative;
     width: 1920px;
@@ -30,10 +30,10 @@
     perspective: 500px;
     margin: auto;
   }
- .container .box {
+.container .box {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 400px;
     background: #000;
     transition: 0.5s;
     transform-style: preserve-3d;
