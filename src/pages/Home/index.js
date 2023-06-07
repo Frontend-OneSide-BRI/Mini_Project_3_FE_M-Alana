@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
-import Highlight from "../../components/hightlight";
+import Navbar from "../../components/templates/navbar";
+import Footer from "../../components/templates/footer";
+import Highlight from "../../components/molecules/hightlight";
 import "./index.css";
 import img1 from "../../assets/homebg.jpg";
 import { useEffect, useState } from "react";
