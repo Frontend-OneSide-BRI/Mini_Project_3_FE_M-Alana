@@ -13,7 +13,7 @@ function Home() {
     return (
         <>
             <header>
-                <Navbar />
+                <Navbar login />
             </header>
             <main> 
                 <BGimage />
@@ -67,7 +67,6 @@ function Home() {
                     </div>
                 </div>
                 <Highlight />
-                <Signup />
             </main>
             <Footer />
             

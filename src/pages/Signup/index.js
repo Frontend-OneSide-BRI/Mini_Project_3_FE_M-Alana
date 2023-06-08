@@ -7,7 +7,7 @@ function Signup() {
     return (
         <>
             <header>
-                <Navbar />
+                <Navbar login />
             </header>
             <main>
                 <div className="relative">
