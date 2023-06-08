@@ -3,7 +3,6 @@ import Navbar from "../../components/templates/navbar";
 import Footer from "../../components/templates/footer";
 import Highlight from "../../components/molecules/hightlight";
 import BGimage from "../../components/templates/background";
-import SignupCard from "../../components/molecules/signupcard";
 import Signup  from "../Signup";
 import "./index.css";
 import img1 from "../../assets/homebg.jpg";
