@@ -25,10 +25,9 @@ function Login(props) {
 
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) {
-            navigate("/home");
-        }
-    })
+        if (currentUser) navigate("/");
+    });
+
     return (
         <>
             <header>

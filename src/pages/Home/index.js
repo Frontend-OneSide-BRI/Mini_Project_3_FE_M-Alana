@@ -3,28 +3,44 @@ import Navbar from "../../components/templates/navbar";
 import Footer from "../../components/templates/footer";
 import Highlight from "../../components/molecules/hightlight";
 import BGimage from "../../components/templates/background";
-import Signup  from "../Signup";
+import Signup from "../Signup";
 import "./index.css";
-import img1 from "../../assets/homebg.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres } from "../../store";
+import { getGenres, fetchMovies } from "../../store";
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "../../utils/firebase-config";
+import Slider from "../../components/templates/slider";
 
 function Home() {
+    const movies = useSelector((state) => state.netflix.movies);
+    const genres = useSelector((state) => state.netflix.genres);
+    const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getGenres());
-    }, [])
+      }, []);
+    
+      useEffect(() => {
+        if (genresLoaded) {
+          dispatch(fetchMovies({ genres, type: "all" }));
+        }
+      }, [genresLoaded]);
+    
+      onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (!currentUser) navigate("/login");
+      });
 
     return (
         <>
             <header>
                 <Navbar login />
             </header>
-            <main> 
+            <main>
                 <BGimage signup />
                 <div className="bg-black bg-gradient-to-t from-indigo-950 mx-auto">
                     <div className="grid grid-cols-3 place-items-center">
@@ -76,9 +92,9 @@ function Home() {
                     </div>
                 </div>
                 <Highlight />
+                <Slider movies={movies}/>
             </main>
             <Footer />
-            
         </>
     )
 }
