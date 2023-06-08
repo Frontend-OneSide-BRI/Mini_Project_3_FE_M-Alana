@@ -14,9 +14,9 @@ import { firebaseAuth } from "../../utils/firebase-config";
 import Slider from "../../components/templates/slider";
 
 function Home() {
-    const movies = useSelector((state) => state.netflix.movies);
-    const genres = useSelector((state) => state.netflix.genres);
-    const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
+    const movies = useSelector((state) => state.demovies.movies);
+    const genres = useSelector((state) => state.demovies.genres);
+    const genresLoaded = useSelector((state) => state.demovies.genresLoaded);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -31,9 +31,9 @@ function Home() {
         }
       }, [genresLoaded]);
     
-      onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (!currentUser) navigate("/login");
-      });
+    //   onAuthStateChanged(firebaseAuth, (currentUser) => {
+    //     if (!currentUser) navigate("/login");
+    //   });
 
     return (
         <>

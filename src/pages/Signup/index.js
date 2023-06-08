@@ -17,7 +17,7 @@ function Signup(props) {
     try {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
-      navigate("/"); // Menambahkan navigasi ke halaman "/home" setelah berhasil mendaftar
+      navigate("/Home"); // Menambahkan navigasi ke halaman "/home" setelah berhasil mendaftar
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,7 @@ function Signup(props) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
       if (currentUser) {
-        navigate("/");
+        navigate("/Home");
       }
     });
 
