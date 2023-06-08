@@ -1,6 +1,8 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
-function bgimage() {
+function Bgimage(props) {
+    const navigate = useNavigate();
     return(
         <>
             <div className="relative">
@@ -9,7 +11,7 @@ function bgimage() {
                         <h1 class="absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Discover Your Favourites Movie and More</h1>
                     </div>
                     <div className="absolute text-5xl text-white top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <button type="button" class="text-3xl text-white bg-gradient-to-r from-blue-500 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <button onClick={() => navigate(props.login ? "/login" : "/signup")} type="button" class="text-3xl text-white bg-gradient-to-r from-blue-500 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <span className="text-2xl">Get Started</span>
                         </button>
                     </div>
@@ -18,4 +20,4 @@ function bgimage() {
     )
 }
 
-export default bgimage;
+export default Bgimage;

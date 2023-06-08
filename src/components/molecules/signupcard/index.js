@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import {Navigate, useNavigate} from "react-router-dom";
+import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import {firebaseAuth} from "../../../utils/firebase-config";
 
 function SignupCard() {
+    const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -13,10 +15,15 @@ function SignupCard() {
         try {
             const { email, password } = formValues;
             await createUserWithEmailAndPassword(firebaseAuth, email, password)
+            navigate("/")
         } catch (error) {
             console.log(error);
         }
-    }
+    };
+
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (currentUser) navigate("/");
+    })
 
     return (
         <div className="grid justify-center absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

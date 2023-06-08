@@ -16,7 +16,7 @@ function Home() {
                 <Navbar login />
             </header>
             <main> 
-                <BGimage />
+                <BGimage signup />
                 <div className="bg-black bg-gradient-to-t from-indigo-950 mx-auto">
                     <div className="grid grid-cols-3 place-items-center">
                         <div className="max-w-sm p-6">
