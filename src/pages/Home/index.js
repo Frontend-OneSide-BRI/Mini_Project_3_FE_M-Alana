@@ -7,8 +7,18 @@ import Signup  from "../Signup";
 import "./index.css";
 import img1 from "../../assets/homebg.jpg";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getGenres } from "../../store";
 
 function Home() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getGenres());
+    }, [])
+
     return (
         <>
             <header>

@@ -14,7 +14,7 @@ export const getGenres = createAsyncThunk(
         const {data} = await axios.get(`${baseURL}/genre/movie/list?api_key=${apiKey}&language=en-US`);
         console.log(data);
         // return data;
-    };
+    }
 );
 
 const DeMoviesSlice = createSlice({
